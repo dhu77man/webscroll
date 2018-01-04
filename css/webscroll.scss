@@ -1,0 +1,120 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -17px;
+    overflow-y: scroll;
+}
+
+#app {
+    position: relative;
+}
+
+
+#webscroll-scrollbar {
+    position: fixed;
+    top: 50%;
+    right: 100px;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    width: 100px;
+    height: 400px;
+
+    &:hover {
+        #webscroll-sections {
+            .webscroll-section {
+                opacity: 0.5;
+                padding-left: 10px;
+
+                &.focused {
+                    opacity: 1;
+                    padding-left: 0px;
+                }
+
+                &:hover:not(.focused) {
+                    opacity: 1;
+                    padding-left: 5px;
+                    border-right: 1px solid rgba(255,255,255,1);
+
+                    &:before, &:after {
+                        background-color: rgba(255,255,255,1);
+                    }
+                }
+            }
+        }
+    }
+
+    #webscroll-sections {
+
+        .webscroll-section {
+            transition: all 200ms;
+            position: absolute;
+            left: 0px;
+            color: #FFF;
+            opacity: 0;
+            padding-left: 15px;
+            box-sizing: border-box;
+            cursor: pointer;
+            width: 90px;
+            border-right: 1px solid rgba(255,255,255,0);
+
+            &.focused {
+                border-right: 1px solid rgba(255,255,255,0.65);
+                opacity: 0.35;
+
+                &:before, &:after {
+                    background-color: rgba(255,255,255,0.65);
+                }
+            }
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                right: -5px;
+                background-color: rgba(255,255,255,0);
+                width: 5px;
+                height: 1px;
+                top: 0px;
+            }
+            &:after {
+                top: auto;
+                bottom: 0px;
+            }
+        }
+    }
+
+    #webscroll-track {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        width: 1px;
+        background-color: rgba(100, 100, 100, 0.9);
+
+        #webscroll-thumb {
+            position: absolute;
+            top: 0px;
+            right: -1px;
+            border-radius: 3px;
+            width: 3px;
+            height: 30%;
+            background-color: #EEE;
+        }
+    }
+}
