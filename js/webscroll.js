@@ -18,7 +18,7 @@ var webscroll = {
     thumbRatio: 0,
 
     options: {
-        sections: 'section'
+        sections: false
     },
 
     init: function(options){
@@ -136,5 +136,3 @@ var webscroll = {
         webscroll.elements.thumb.style.top = (webscroll.ratio * webscroll.scrollRatio * root.scrollTop) + 'px';
     }
 }
-
-webscroll.init();
