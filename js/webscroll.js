@@ -86,7 +86,32 @@ var webscroll = {
                     webscrollSection: this.div('webscroll-section', this.elements.sections, undefined, sections[i].getAttribute('role'))
                 }
             )
+
+            var s = this.sections[this.sections.length-1];
+            s.webscrollSection.setAttribute('rel',this.sections.length-1);
+            var _this = this;
+            s.webscrollSection.addEventListener('click',function(){
+                _this.scrollTo(_this.sections[this.getAttribute('rel')].bodySection.offsetTop, 250);
+            });
         }
+    },
+
+    scrollTo: function(elementY, duration){
+        var startingY = root.scrollTop;
+        var diff = elementY - startingY;
+        var start;
+
+        window.requestAnimationFrame(function step(timestamp) {
+            if (!start) start = timestamp
+
+            var time = timestamp - start;
+            var percent = Math.min(time / duration, 1)
+            root.scrollTo(0, startingY + diff * percent);
+
+            if (time < duration) {
+                window.requestAnimationFrame(step);
+            }
+        })
     },
 
     render: function(){
