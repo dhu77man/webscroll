@@ -27,7 +27,7 @@ body {
 }
 
 
-#webscroll-scrollbar {
+#webscroll-container {
     position: fixed;
     top: 50%;
     right: 100px;
@@ -37,6 +37,7 @@ body {
     height: 400px;
 
     &:hover {
+
         #webscroll-sections {
             .webscroll-section {
                 opacity: 0.5;
@@ -99,22 +100,39 @@ body {
         }
     }
 
-    #webscroll-track {
+    #webscroll-scrollbar {
         position: absolute;
-        top: 0px;
         right: 0px;
+        top: 0px;
         height: 100%;
-        width: 1px;
-        background-color: rgba(100, 100, 100, 0.9);
+        padding-left: 15px;
+        padding-right: 15px;
 
-        #webscroll-thumb {
-            position: absolute;
-            top: 0px;
-            right: -1px;
-            border-radius: 3px;
-            width: 3px;
-            height: 30%;
-            background-color: #EEE;
+        #webscroll-track {
+            position: relative;
+            height: 100%;
+            width: 1px;
+            background-color: rgba(100, 100, 100, 0.9);
+    
+            #webscroll-thumb {
+                position: absolute;
+                top: 0px;
+                right: -1px;
+                border-radius: 3px;
+                width: 3px;
+                height: 30%;
+                background-color: #EEE;
+            }
+        }
+
+        &:hover {
+            #webscroll-track {
+    
+                #webscroll-thumb {
+                    right: -2px;
+                    width: 5px;
+                }
+            }
         }
     }
 }

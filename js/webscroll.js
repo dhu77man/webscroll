@@ -18,7 +18,8 @@ var webscroll = {
     thumbRatio: 0,
 
     options: {
-        sections: false
+        style: 2,
+        sections: undefined
     },
 
     init: function(options){
@@ -64,7 +65,8 @@ var webscroll = {
     },
 
     build: function(){
-        this.elements.scrollbar = this.div('', this.app, 'webscroll-scrollbar');
+        this.elements.container = this.div('webscroll-style-'+this.options.style, this.app, 'webscroll-container');
+        this.elements.scrollbar = this.div('', this.elements.container, 'webscroll-scrollbar');
         this.elements.track = this.div('', this.elements.scrollbar, 'webscroll-track');
         this.elements.thumb = this.div('', this.elements.track, 'webscroll-thumb');
 
@@ -76,7 +78,7 @@ var webscroll = {
     },
 
     buildSections: function(){
-        this.elements.sections = this.div('', this.elements.scrollbar, 'webscroll-sections');
+        this.elements.sections = this.div('', this.elements.container, 'webscroll-sections');
 
         var sections = document.getElementsByClassName(this.options.sections);
         for(var i = 0; i < sections.length; i++){

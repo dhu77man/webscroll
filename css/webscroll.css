@@ -24,7 +24,7 @@ body {
   position: relative;
 }
 
-#webscroll-scrollbar {
+#webscroll-container {
   position: fixed;
   top: 50%;
   right: 100px;
@@ -34,27 +34,27 @@ body {
   height: 400px;
 }
 
-#webscroll-scrollbar:hover #webscroll-sections .webscroll-section {
+#webscroll-container:hover #webscroll-sections .webscroll-section {
   opacity: 0.5;
   padding-left: 10px;
 }
 
-#webscroll-scrollbar:hover #webscroll-sections .webscroll-section.focused {
+#webscroll-container:hover #webscroll-sections .webscroll-section.focused {
   opacity: 1;
   padding-left: 0px;
 }
 
-#webscroll-scrollbar:hover #webscroll-sections .webscroll-section:hover:not(.focused) {
+#webscroll-container:hover #webscroll-sections .webscroll-section:hover:not(.focused) {
   opacity: 1;
   padding-left: 5px;
   border-right: 1px solid white;
 }
 
-#webscroll-scrollbar:hover #webscroll-sections .webscroll-section:hover:not(.focused):before, #webscroll-scrollbar:hover #webscroll-sections .webscroll-section:hover:not(.focused):after {
+#webscroll-container:hover #webscroll-sections .webscroll-section:hover:not(.focused):before, #webscroll-container:hover #webscroll-sections .webscroll-section:hover:not(.focused):after {
   background-color: white;
 }
 
-#webscroll-scrollbar #webscroll-sections .webscroll-section {
+#webscroll-container #webscroll-sections .webscroll-section {
   transition: all 200ms;
   position: absolute;
   left: 0px;
@@ -67,16 +67,16 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0);
 }
 
-#webscroll-scrollbar #webscroll-sections .webscroll-section.focused {
+#webscroll-container #webscroll-sections .webscroll-section.focused {
   border-right: 1px solid rgba(255, 255, 255, 0.65);
   opacity: 0.35;
 }
 
-#webscroll-scrollbar #webscroll-sections .webscroll-section.focused:before, #webscroll-scrollbar #webscroll-sections .webscroll-section.focused:after {
+#webscroll-container #webscroll-sections .webscroll-section.focused:before, #webscroll-container #webscroll-sections .webscroll-section.focused:after {
   background-color: rgba(255, 255, 255, 0.65);
 }
 
-#webscroll-scrollbar #webscroll-sections .webscroll-section:before, #webscroll-scrollbar #webscroll-sections .webscroll-section:after {
+#webscroll-container #webscroll-sections .webscroll-section:before, #webscroll-container #webscroll-sections .webscroll-section:after {
   content: '';
   position: absolute;
   right: -5px;
@@ -86,21 +86,28 @@ body {
   top: 0px;
 }
 
-#webscroll-scrollbar #webscroll-sections .webscroll-section:after {
+#webscroll-container #webscroll-sections .webscroll-section:after {
   top: auto;
   bottom: 0px;
 }
 
-#webscroll-scrollbar #webscroll-track {
+#webscroll-container #webscroll-scrollbar {
   position: absolute;
-  top: 0px;
   right: 0px;
+  top: 0px;
+  height: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#webscroll-container #webscroll-scrollbar #webscroll-track {
+  position: relative;
   height: 100%;
   width: 1px;
   background-color: rgba(100, 100, 100, 0.9);
 }
 
-#webscroll-scrollbar #webscroll-track #webscroll-thumb {
+#webscroll-container #webscroll-scrollbar #webscroll-track #webscroll-thumb {
   position: absolute;
   top: 0px;
   right: -1px;
@@ -108,5 +115,10 @@ body {
   width: 3px;
   height: 30%;
   background-color: #EEE;
+}
+
+#webscroll-container #webscroll-scrollbar:hover #webscroll-track #webscroll-thumb {
+  right: -2px;
+  width: 5px;
 }
 /*# sourceMappingURL=webscroll.css.map */
